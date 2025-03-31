@@ -23,6 +23,7 @@ OPENAI_TIMEOUT_EXCEPTIONS = (
     openai.APIConnectionError,
     openai.APITimeoutError,
     openai.InternalServerError,
+    openai.APIStatusError,
 )
 
 

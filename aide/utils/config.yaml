@@ -29,7 +29,7 @@ exec:
 # agent hyperparams
 agent:
   # how many improvement iterations to run
-  steps: 5
+  steps: 20
   # total time available to agent
   time_limit: 86400 # 24 hrs (purely informational, implementation is user's resp)
   # whether to instruct the agent to use CV (set to 1 to disable)
@@ -45,12 +45,12 @@ agent:
 
   # LLM settings for coding
   code:
-    model: gpt-4o_2024-08-06
+    model: gpt-4-turbo
     temp: 0.5
 
   # LLM settings for evaluating program output / tracebacks
   feedback:
-    model: gpt-4o_2024-08-06
+    model: gpt-4-turbo
     temp: 0.5
 
   # hyperparameters for the tree search

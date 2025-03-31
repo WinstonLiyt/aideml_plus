@@ -31,20 +31,19 @@ OPENAI_TIMEOUT_EXCEPTIONS = (
     openai.APIConnectionError,
     openai.APITimeoutError,
     openai.InternalServerError,
+    openai.APIStatusError,
 )
 
-def get_azure_ad_token():
-    response = requests.post("http://10.150.240.106:9999")
-    response.raise_for_status()
-    token = response.text
-    return token
+# def get_azure_ad_token():
+#     response = requests.post("http://10.150.240.106:9999")
+#     response.raise_for_status()
+#     token = response.text
+#     return token
 
 @once
 def _setup_openai_client():
     global _client
-    _client = openai.AzureOpenAI(max_retries=0,
-                                 azure_ad_token_provider=get_azure_ad_token
-            )
+    _client = openai.AzureOpenAI(max_retries=0)
     
 
 def query(
